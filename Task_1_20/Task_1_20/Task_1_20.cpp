@@ -7,48 +7,44 @@
 #include <iostream>
 #include <string>
 #include <stdio.h>
-#include <regex>
+#include <algorithm>
+#include <iomanip>
 
 using namespace std;
 
-//      /^(?:\+|\-)?(?:(?:\d+)|(?:\d+\.)|(?:\.\d+)|(?:\d+\.\d+)){1}(?:e(?:\+|\-)?\d+)?$/i регулярка проверяющая на соответствие вещественному числу
-
-
 int main()
 {
-	string value;
-	cin >> value;
- 	// regex r("/^(?:\\+|\\-)?(?:(?:\\d+)|(?:\\d+\\.)|(?:\\.\\d+)|(?:\\d+\\.\\d+)){1}(?:e(?:\\+|\\-)?\\d+)?$/i");
-	regex r("\\d");
-	cout << "is valid ? " <<  regex_match(value, r);
+	string str;
+	int exp;
+	int countSign;
+	cout << "Input value" << endl;
+	cin >> str;
+	cout << "Input exponent" << endl;
+	cin >> exp;
+	cout << "Input number of digits after point" << endl;
+	cin >> countSign;
+	double value = stod(str);
 
-	// TODO: проверить на соответствие регулярному выражению иначе ошибка ввода
-	/*
-	long int lengthStr = value.length();
-	long int position = 0;
-	char delimiter = '.';
-	char delimiterExponent = 'E';
-	char symbol = value[position];
-	char sign, firstDigit = ' ';
-	string significantPart, exponent;
-
-	if (symbol == '-') {
-		sign = '-';
-		position++;
-	} else if (symbol == '+') {
-		position++;
+	if (value < 0) {
+		value *= -1;
+		cout << "-";
 	}
 
-	long int positionOfDelimiter = value.find(delimiter);
-	long int positionOfDelimiterExponent = value.find(delimiterExponent);
-	string firstPart = value.substr(position, positionOfDelimiter - 1);
-	string secondPart = value.substr(positionOfDelimiter + 1, positionOfDelimiterExponent);
-	string thirdPart = value.substr(positionOfDelimiterExponent, lengthStr);
-	cout << firstPart << '\n';
-	cout << secondPart << '\n';
-	cout << thirdPart << '\n';
+	if (value >= 10) {
+		while (value >= 10) {
+			value = value / 10;
+			exp++;
+		}
+		exp--;
+	}
+	else if ((1 >= value) && (value >= 0)) {
+		while (1 > value) {
+			value = value * 10;
+			exp--;
+		}
+	}
 
+	string sign = exp > 0 ? "+" : "";
 
-	cout << sign << firstDigit << "." << significantPart << exponent;
-	*/
+	cout << fixed << setprecision(countSign) << value << "E" << sign << exp << endl;
 }
