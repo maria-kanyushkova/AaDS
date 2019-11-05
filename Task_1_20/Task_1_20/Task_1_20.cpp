@@ -17,13 +17,18 @@ int main()
 	string str;
 	int exp;
 	int countSign;
+	double value;
+
 	cout << "Input value" << endl;
 	cin >> str;
-	cout << "Input exponent" << endl;
-	cin >> exp;
 	cout << "Input number of digits after point" << endl;
 	cin >> countSign;
-	double value = stod(str);
+
+	string expon = str.substr(str.find("E") + 1, str.length());
+	exp = expon != str ? stoi(expon) : 0;
+	value = stod(str.substr(0, str.find("E")));
+
+	cout << endl;
 
 	if (value < 0) {
 		value *= -1;
@@ -35,7 +40,6 @@ int main()
 			value = value / 10;
 			exp++;
 		}
-		exp--;
 	}
 	else if ((1 >= value) && (value >= 0)) {
 		while (1 > value) {
@@ -44,7 +48,12 @@ int main()
 		}
 	}
 
-	string sign = exp > 0 ? "+" : "";
+	cout << fixed << setprecision(countSign) << value;
 
-	cout << fixed << setprecision(countSign) << value << "E" << sign << exp << endl;
+	if (exp != 0) {
+		string sign = exp > 0 ? "+" : "";
+		cout << "E" << sign << exp;
+	}
+
+	cout << endl;
 }
