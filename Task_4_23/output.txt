@@ -1,0 +1,38 @@
+London
+	->BA001->Paris
+		->LK321->Berlin
+			->PI876->Paris
+				->FR967->Kazan
+					->MZ129->Moscow
+
+					->VV123->Yoshkar-Ola
+						->AA321->Moscow
+
+						->QQ456->SaintPetersburg
+							->TT654->Moscow
+
+
+
+
+
+
+		->FR967->Kazan
+			->MZ129->Moscow
+
+			->VV123->Yoshkar-Ola
+				->AA321->Moscow
+
+				->QQ456->SaintPetersburg
+					->TT654->Moscow
+
+
+
+
+
+
+London - BA001 - Paris - FR967 - Kazan - MZ129 - Moscow
+London - BA001 - Paris - FR967 - Kazan - VV123 - Yoshkar-Ola - AA321 - Moscow
+London - BA001 - Paris - LK321 - Berlin - PI876 - Paris - FR967 - Kazan - MZ129 - Moscow
+London - BA001 - Paris - FR967 - Kazan - VV123 - Yoshkar-Ola - QQ456 - SaintPetersburg - TT654 - Moscow
+London - BA001 - Paris - LK321 - Berlin - PI876 - Paris - FR967 - Kazan - VV123 - Yoshkar-Ola - AA321 - Moscow
+London - BA001 - Paris - LK321 - Berlin - PI876 - Paris - FR967 - Kazan - VV123 - Yoshkar-Ola - QQ456 - SaintPetersburg - TT654 - Moscow

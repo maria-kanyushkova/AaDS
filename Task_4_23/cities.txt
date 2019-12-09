@@ -1,0 +1,8 @@
+7
+1 Moscow
+2 Paris
+3 Berlin
+4 Kazan
+5 London
+6 Yoshkar-Ola
+7 SaintPetersburg
