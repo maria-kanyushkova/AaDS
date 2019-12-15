@@ -8,12 +8,14 @@
 #include "struct/Edge.h"
 #include "struct/Node.h"
 #include "struct/TreeNode.h"
+#include "Utils.h"
 
 namespace Handler {
+
 	// вариация поиска в ширину, в очереди хранятся указатели на вершины дерева
 	TreeNode* bfs(map<int, Node*>& const nodes, Node* from, ostream& outFile) {
 		auto root = new TreeNode(from);
-		//root->print(outFile, root);
+		root->print(outFile, root);
 
 		queue < TreeNode* > q;
 		q.push(root);
@@ -27,7 +29,7 @@ namespace Handler {
 					continue;
 				}
 
-				//root->print(outFile, newTreeNode);
+				root->print(outFile, newTreeNode);
 				q.push(newTreeNode);
 			}
 		}
@@ -35,11 +37,15 @@ namespace Handler {
 		return root;
 	}
 
-	void printPath(ostream& outFile, vector<Edge*> const& path) {
-		for (auto edge : path) {
-			outFile << edge->from->city << " - " << edge->flight << " - ";
+	void printPath(ostream& os, vector<Edge*> const& path) {
+		if (path.size() == 0) {
+			return;
 		}
-		outFile << path.back()->to->city << endl;
+
+		for (auto edge : path) {
+			os << edge->from->city << " - " << edge->flight << " - ";
+		}
+		os << path.back()->to->city << endl;
 	}
 
 	void printPaths(ostream& outFile, vector <vector<Edge*>> const& paths) {
@@ -48,9 +54,9 @@ namespace Handler {
 		}
 	}
 
-	void solve(istream& iCities, istream& in, ostream& output) {
-		map < int, Node* > nodes;
-		map < Node*, int > rNodes;
+	void solve(istream& iCities, istream& in, ostream& out) {
+		map<int, Node*> nodes;
+		map<Node*, int> rNodes;
 
 		int n;
 		iCities >> n;
@@ -64,6 +70,10 @@ namespace Handler {
 
 		int from, to;
 		in >> n >> from >> to;
+		if (from == to) {
+			Utils::setPathIsCyclic(true);
+		}
+
 		for (int i = 0; i < n; i++) {
 			int from, to;
 			string flight;
@@ -73,18 +83,19 @@ namespace Handler {
 			nodes[to]->to.push_back(edge);
 		}
 
+
 		// поиск в ширину
-		auto tree = bfs(nodes, nodes[from], output);
+		auto tree = bfs(nodes, nodes[from], out);
 
 		// печатаем дерево без тупиковых путей
 		tree->updateGoal(nodes[to]);
-		tree->print(output);
+		tree->print(out);
 
 		// получаем все пути из дерева, сортируем по длине и печатаем
 		auto paths = tree->getPaths();
 		sort(paths.begin(), paths.end(), [](vector<Edge*> const& a, vector<Edge*> const& b) {
 			return a.size() < b.size();
 			});
-		printPaths(output, paths);
+		printPaths(out, paths);
 	}
 }

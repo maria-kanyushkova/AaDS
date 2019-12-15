@@ -35,4 +35,14 @@ namespace Utils {
 			throw runtime_error(Utils::getErrorMessage(EErrorMessage::NOT_OPEN_FILES));
 		}
 	}
+
+	bool pathIsCyclic = false;
+
+	void setPathIsCyclic(bool value) {
+		pathIsCyclic = value;
+	}
+
+	bool getPathIsCyclic() {
+		return pathIsCyclic;
+	}
 }

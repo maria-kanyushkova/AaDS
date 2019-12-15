@@ -5,4 +5,4 @@
 4 Kazan
 5 London
 6 Yoshkar-Ola
-7 SaintPetersburg
+7 Saint-Petersburg

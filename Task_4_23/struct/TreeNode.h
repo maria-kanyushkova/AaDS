@@ -1,6 +1,9 @@
+#include "..//Utils.h"
+
 string pad(int len) {
 	return move(string(len, '\t'));
-}
+} 
+
 // вершина дерева непосредственно в алгоритмах
 struct TreeNode {
     Edge *edge;
@@ -14,16 +17,21 @@ struct TreeNode {
     TreeNode(Edge *edge) : edge(edge) {}
 
     // используется для избежания циклических путей
-    bool canAddChild(Edge *edge) {
-        auto ptr = this;
-        while (ptr != nullptr) {
-            if (ptr->edge == edge) {
-                return false;
-            }
-            ptr = ptr->parent;
-        }
-        return true;
-    }
+	bool canAddChild(Edge* edge) {
+		auto ptr = this;
+		while (ptr != nullptr) {
+			if (ptr->edge == edge) {
+				return false;
+			}
+			if (ptr->edge->to == edge->to) {
+				if (!Utils::getPathIsCyclic()|| ptr->parent != nullptr) {
+					return false;
+				}
+			}
+			ptr = ptr->parent;
+		}
+		return true;
+	}
 
     // пытается добавить потомка в вершину дерева
     TreeNode *addChild(Edge *edge) {

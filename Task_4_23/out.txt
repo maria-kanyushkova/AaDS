@@ -1,0 +1,181 @@
++London
+
+London
+	->BA001->+Paris
+
+
+London
+	->BA001->Paris
+		->LK321->+Berlin
+
+
+
+London
+	->BA001->Paris
+		->LK321->Berlin
+
+		->FR967->+Kazan
+
+
+
+London
+	->BA001->Paris
+		->LK321->Berlin
+
+		->FR967->Kazan
+			->MZ129->+Moscow
+
+
+
+
+London
+	->BA001->Paris
+		->LK321->Berlin
+
+		->FR967->Kazan
+			->MZ129->Moscow
+
+			->VV123->+Yoshkar-Ola
+
+
+
+
+London
+	->BA001->Paris
+		->LK321->Berlin
+
+		->FR967->Kazan
+			->MZ129->Moscow
+				->XY121->+London
+
+
+			->VV123->Yoshkar-Ola
+
+
+
+
+London
+	->BA001->Paris
+		->LK321->Berlin
+
+		->FR967->Kazan
+			->MZ129->Moscow
+				->XY121->London
+
+
+			->VV123->Yoshkar-Ola
+				->AA321->+Moscow
+
+
+
+
+
+London
+	->BA001->Paris
+		->LK321->Berlin
+
+		->FR967->Kazan
+			->MZ129->Moscow
+				->XY121->London
+
+
+			->VV123->Yoshkar-Ola
+				->AA321->Moscow
+
+				->QQ456->+Saint-Petersburg
+
+
+
+
+
+London
+	->BA001->Paris
+		->LK321->Berlin
+
+		->FR967->Kazan
+			->MZ129->Moscow
+				->XY121->London
+
+
+			->VV123->Yoshkar-Ola
+				->AA321->Moscow
+					->XY121->+London
+
+
+				->QQ456->Saint-Petersburg
+
+
+
+
+
+London
+	->BA001->Paris
+		->LK321->Berlin
+
+		->FR967->Kazan
+			->MZ129->Moscow
+				->XY121->London
+
+
+			->VV123->Yoshkar-Ola
+				->AA321->Moscow
+					->XY121->London
+
+
+				->QQ456->Saint-Petersburg
+					->TT654->+Moscow
+
+
+
+
+
+
+London
+	->BA001->Paris
+		->LK321->Berlin
+
+		->FR967->Kazan
+			->MZ129->Moscow
+				->XY121->London
+
+
+			->VV123->Yoshkar-Ola
+				->AA321->Moscow
+					->XY121->London
+
+
+				->QQ456->Saint-Petersburg
+					->TT654->Moscow
+						->XY121->+London
+
+
+
+
+
+
+
+London
+	->BA001->Paris
+		->FR967->Kazan
+			->MZ129->Moscow
+				->XY121->London
+
+
+			->VV123->Yoshkar-Ola
+				->AA321->Moscow
+					->XY121->London
+
+
+				->QQ456->Saint-Petersburg
+					->TT654->Moscow
+						->XY121->London
+
+
+
+
+
+
+
+London - BA001 - Paris - FR967 - Kazan - MZ129 - Moscow - XY121 - London
+London - BA001 - Paris - FR967 - Kazan - VV123 - Yoshkar-Ola - AA321 - Moscow - XY121 - London
+London - BA001 - Paris - FR967 - Kazan - VV123 - Yoshkar-Ola - QQ456 - Saint-Petersburg - TT654 - Moscow - XY121 - London
