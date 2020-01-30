@@ -11,7 +11,6 @@
 #include "Utils.h"
 
 namespace Handler {
-
 	// вариация поиска в ширину, в очереди хранятся указатели на вершины дерева
 	TreeNode* bfs(map<int, Node*>& const nodes, Node* from, ostream& outFile) {
 		auto root = new TreeNode(from);

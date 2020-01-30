@@ -24,7 +24,7 @@ struct TreeNode {
 				return false;
 			}
 			if (ptr->edge->to == edge->to) {
-				if (!Utils::getPathIsCyclic()|| ptr->parent != nullptr) {
+				if (!Utils::getPathIsCyclic() || ptr->parent != nullptr) {
 					return false;
 				}
 			}
